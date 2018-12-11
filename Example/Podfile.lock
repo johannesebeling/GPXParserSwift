@@ -1,0 +1,16 @@
+PODS:
+  - GPXParserSwift (0.0.1)
+
+DEPENDENCIES:
+  - GPXParserSwift (from `../`)
+
+EXTERNAL SOURCES:
+  GPXParserSwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GPXParserSwift: 6b8553ec95e075f7d1e540907726f8d77e139032
+
+PODFILE CHECKSUM: 56c5852db9e0eacf21a72bc1a408c4ce90f25d1a
+
+COCOAPODS: 1.5.3

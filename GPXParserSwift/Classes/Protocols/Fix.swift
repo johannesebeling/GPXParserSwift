@@ -1,9 +1,12 @@
 import CoreLocation
 
-public class Fix {
+protocol Fix {
     
-    var latitude = 0.0
-    var longitude = 0.0
+    var latitude: Double { get set }
+    var longitude: Double { get set }
+}
+
+extension Fix {
     
     public var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

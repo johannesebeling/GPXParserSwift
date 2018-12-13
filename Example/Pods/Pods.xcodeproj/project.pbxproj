@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13D3BE8CC54601250246F8856783BD5D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF624BA2B6E6FE33E6AAA2BED2D5EF3 /* MapKit.framework */; };
+		0BD0D702C8B4593A4B06A100BCDCE908 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F5F6E0DE548CC05D8238C0312DC59F /* Response.swift */; };
+		1FBFAD22DA0E7433197716E56541ED23 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BA9A5270346FE097E9D933FE0AFB7 /* GPX.swift */; };
 		2101BE180DA44AA16929DEE95514AF83 /* Pods-GPXParserSwift_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6B53FDF0F12E69AAB48D17F2FE68CBC /* Pods-GPXParserSwift_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		399422A5C317A0C86D5FEFD7E2BED15E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEBEC51C78C28A69254C8053E52ABD92 /* Foundation.framework */; };
-		3D22A3443D22BD9D3FFCF6F4A4276C85 /* Fix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DDA78DF60851F4BDD5C8C688F9BC37 /* Fix.swift */; };
+		2558F47721C281FE00865E88 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2558F47621C281FE00865E88 /* Route.swift */; };
+		25C6C6D821C28DF6004EAE4E /* Fix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6C6D721C28DF6004EAE4E /* Fix.swift */; };
+		25C7D88321C28B4100039EBC /* Routepoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7D88221C28B4100039EBC /* Routepoint.swift */; };
+		37682C9DACE32F70827C9C8B5A63F4A2 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E59EC3DD3B383C20B694F57BA7E75F /* Parser.swift */; };
 		5608207E912D6C0E827C9D3FE7B493E1 /* Pods-GPXParserSwift_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B82FF67D60624ADDB8401981090CBEAB /* Pods-GPXParserSwift_Tests-dummy.m */; };
+		62864BBD32764FE224C10CBDEA9E2009 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF624BA2B6E6FE33E6AAA2BED2D5EF3 /* MapKit.framework */; };
 		6FD4653CE80CEE18FC9D0837434E71D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEBEC51C78C28A69254C8053E52ABD92 /* Foundation.framework */; };
-		714EC72CE3F878AA9AC5573B7834D37A /* GPXParserSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CFD7B7FB2389EA975A4BF9C434D7DAC8 /* GPXParserSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		80386CFCD43E388039A22B8CBFC764CC /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEF61C066F73D2662114D83EFC0ECE7 /* GPX.swift */; };
-		803E6593776DB53F1493969B20CA7821 /* GPXParserSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4625858D7A716902BA479145E14C50C /* GPXParserSwift-dummy.m */; };
-		860B7BB3380D6C1DF9E8C9C963DD3EDE /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416E3FC3EE351506F9B8DC7AAD02966F /* Track.swift */; };
-		988BCDB465A14529CE4A41565BA3818A /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5844990AC78887655CE5085450A880 /* Waypoint.swift */; };
-		CC4B092A055A33E1E5BBDFBEBE0D6D7F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5760603B7C35D36DC169F023D24CCBFA /* Parser.swift */; };
-		E027E4AEED85AB1712F39B193B3618CD /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4329794052BF869B77CB4A315395F96B /* GPXParser.swift */; };
+		731D98C70321D19F5D5E8E82CCAA4538 /* ConcreteParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AAF5157819DED2D717003C47C6F18C /* ConcreteParser.swift */; };
+		7385600CEB29A4F92DA6AF83AC55DCE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEBEC51C78C28A69254C8053E52ABD92 /* Foundation.framework */; };
+		8232E8D203B632EF4517845A70F6A778 /* GPXParserSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7FC47686AFA84A87B69D58EC99252A6 /* GPXParserSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		944A2692455382A1DBD48FFFC9C6D2A7 /* GPXParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB094BD8633BB0ECDCBEEC2AFA5D9B /* GPXParser.swift */; };
+		BC59EFB7AA07130F44DCAFA2BE84390C /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59A9585828B58CD153980B6D4055212 /* Waypoint.swift */; };
+		C25841DA378A77EE9B45DF2F268ADF5A /* Trackpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E72F2369548CEE1A077C04027CD5B5 /* Trackpoint.swift */; };
+		C7E2D3DB24E93B535589CD91C36876C1 /* GPXParserSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C584F37F0B07F0B3312D39C664F4E0ED /* GPXParserSwift-dummy.m */; };
+		D14A3DEE3C8CEB87B9082C1627A3CD09 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4D0ADFC1497EF5D0E7AEFE62A3B30 /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,42 +32,47 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 18C3665A9086A94D754EF1C3C183BD47;
+			remoteGlobalIDString = 717A8F132BB4C8BAC3F0EB4BC91AC1E2;
 			remoteInfo = GPXParserSwift;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0313378D7516C32AC410741B503D6690 /* GPXParserSwift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = GPXParserSwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		047EE61D9CB2409395946EC51A89B0D8 /* Pods-GPXParserSwift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXParserSwift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		05BC0DC27AC778C07473D30A375F5D57 /* Pods-GPXParserSwift_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GPXParserSwift_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		15DDA78DF60851F4BDD5C8C688F9BC37 /* Fix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
-		3D2A03D7388AEE4CDCDD0A7EC0C37848 /* GPXParserSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GPXParserSwift-prefix.pch"; sourceTree = "<group>"; };
+		173F25E3A8428157472899AE408E9ED6 /* GPXParserSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GPXParserSwift-prefix.pch"; sourceTree = "<group>"; };
+		2558F47621C281FE00865E88 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		25C6C6D721C28DF6004EAE4E /* Fix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
+		25C7D88221C28B4100039EBC /* Routepoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routepoint.swift; sourceTree = "<group>"; };
+		2EC361C2C5E82CCBB40FA6F199082DD1 /* GPXParserSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GPXParserSwift.xcconfig; sourceTree = "<group>"; };
+		35AAF5157819DED2D717003C47C6F18C /* ConcreteParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConcreteParser.swift; sourceTree = "<group>"; };
+		35E59EC3DD3B383C20B694F57BA7E75F /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		37F5F6E0DE548CC05D8238C0312DC59F /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		3DF624BA2B6E6FE33E6AAA2BED2D5EF3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
-		416E3FC3EE351506F9B8DC7AAD02966F /* Track.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		42DE999A803AEA36385DCA8734917FEC /* Pods-GPXParserSwift_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXParserSwift_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		4329794052BF869B77CB4A315395F96B /* GPXParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
 		4E10EFB1A84D73996BB6590264EB240A /* Pods-GPXParserSwift_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GPXParserSwift_Tests.modulemap"; sourceTree = "<group>"; };
-		5760603B7C35D36DC169F023D24CCBFA /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		5BBFF63CC3E855D9DBF107BCB27197B3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		5BEF61C066F73D2662114D83EFC0ECE7 /* GPX.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		79AB094BD8633BB0ECDCBEEC2AFA5D9B /* GPXParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GPXParser.swift; sourceTree = "<group>"; };
 		7F91FBE80ABC93C869D3DA4ED17518D5 /* Pods-GPXParserSwift_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GPXParserSwift_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		862AC11C9137F7F6B0A3601076C3B086 /* Pods-GPXParserSwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GPXParserSwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		88D4D0ADFC1497EF5D0E7AEFE62A3B30 /* Track.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		8C2BA9A5270346FE097E9D933FE0AFB7 /* GPX.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A148869952606F2E0DC52537CE00C4D5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B82FF67D60624ADDB8401981090CBEAB /* Pods-GPXParserSwift_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GPXParserSwift_Tests-dummy.m"; sourceTree = "<group>"; };
 		BA98EE866B9009440FF5560F07C08E90 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5864AD596DE1353ED4982092A818438 /* GPXParserSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GPXParserSwift.framework; path = GPXParserSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5B6CB57EEBC54667484CC9B24181ABF /* Pods_GPXParserSwift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GPXParserSwift_Tests.framework; path = "Pods-GPXParserSwift_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2E72F2369548CEE1A077C04027CD5B5 /* Trackpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Trackpoint.swift; sourceTree = "<group>"; };
+		C584F37F0B07F0B3312D39C664F4E0ED /* GPXParserSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GPXParserSwift-dummy.m"; sourceTree = "<group>"; };
+		C5864AD596DE1353ED4982092A818438 /* GPXParserSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPXParserSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5B6CB57EEBC54667484CC9B24181ABF /* Pods_GPXParserSwift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXParserSwift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA950CD3B7D0A2AFAA9040A5B421EC9A /* Pods-GPXParserSwift_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GPXParserSwift_Tests-resources.sh"; sourceTree = "<group>"; };
-		CD14B5CC6F3E60C8344B687F02343EF7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CF50F8345C8C14ED87EADB342E644B17 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		CFD7B7FB2389EA975A4BF9C434D7DAC8 /* GPXParserSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GPXParserSwift-umbrella.h"; sourceTree = "<group>"; };
-		D4625858D7A716902BA479145E14C50C /* GPXParserSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GPXParserSwift-dummy.m"; sourceTree = "<group>"; };
-		E6567075876E76491D84B4C768800B60 /* GPXParserSwift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = GPXParserSwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CFBA9ADB36EFB41F04409E82A7F3938B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7FC47686AFA84A87B69D58EC99252A6 /* GPXParserSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GPXParserSwift-umbrella.h"; sourceTree = "<group>"; };
+		DE467BB832A273D02FDF3A074A308C46 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E59A9585828B58CD153980B6D4055212 /* Waypoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
 		E6B53FDF0F12E69AAB48D17F2FE68CBC /* Pods-GPXParserSwift_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GPXParserSwift_Tests-umbrella.h"; sourceTree = "<group>"; };
-		E93D8E72534A592813C14E4FFEA2E545 /* GPXParserSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GPXParserSwift.xcconfig; sourceTree = "<group>"; };
 		EEBEC51C78C28A69254C8053E52ABD92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F0D3C4757FFDB7C7BA17FC5A9C702A0F /* GPXParserSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GPXParserSwift.modulemap; sourceTree = "<group>"; };
-		FD5844990AC78887655CE5085450A880 /* Waypoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		FC1A1706C2870B995D5993C11A7D4AE3 /* GPXParserSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GPXParserSwift.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,38 +84,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC8851DE1268A0002724A3FF7D77C000 /* Frameworks */ = {
+		5669B01BA32EC44C2A85E55F13F930C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				399422A5C317A0C86D5FEFD7E2BED15E /* Foundation.framework in Frameworks */,
-				13D3BE8CC54601250246F8856783BD5D /* MapKit.framework in Frameworks */,
+				7385600CEB29A4F92DA6AF83AC55DCE2 /* Foundation.framework in Frameworks */,
+				62864BBD32764FE224C10CBDEA9E2009 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B0890D43D2D3D33F210155B52AC23DC /* Support Files */ = {
+		0ACC19C42B030C4D2784DE9F81C9EC75 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F0D3C4757FFDB7C7BA17FC5A9C702A0F /* GPXParserSwift.modulemap */,
-				E93D8E72534A592813C14E4FFEA2E545 /* GPXParserSwift.xcconfig */,
-				D4625858D7A716902BA479145E14C50C /* GPXParserSwift-dummy.m */,
-				3D2A03D7388AEE4CDCDD0A7EC0C37848 /* GPXParserSwift-prefix.pch */,
-				CFD7B7FB2389EA975A4BF9C434D7DAC8 /* GPXParserSwift-umbrella.h */,
-				CD14B5CC6F3E60C8344B687F02343EF7 /* Info.plist */,
+				FC1A1706C2870B995D5993C11A7D4AE3 /* GPXParserSwift.modulemap */,
+				2EC361C2C5E82CCBB40FA6F199082DD1 /* GPXParserSwift.xcconfig */,
+				C584F37F0B07F0B3312D39C664F4E0ED /* GPXParserSwift-dummy.m */,
+				173F25E3A8428157472899AE408E9ED6 /* GPXParserSwift-prefix.pch */,
+				D7FC47686AFA84A87B69D58EC99252A6 /* GPXParserSwift-umbrella.h */,
+				CFBA9ADB36EFB41F04409E82A7F3938B /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/GPXParserSwift";
 			sourceTree = "<group>";
 		};
-		1CC732E1759B7F27F47F455BC928EFB4 /* Development Pods */ = {
+		26E00AE3D65699F360A646A4113FA7A4 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				DF1710F4370EC78517A2AEC58FCF489A /* GPXParserSwift */,
+				0313378D7516C32AC410741B503D6690 /* GPXParserSwift.podspec */,
+				A148869952606F2E0DC52537CE00C4D5 /* LICENSE */,
+				DE467BB832A273D02FDF3A074A308C46 /* README.md */,
 			);
-			name = "Development Pods";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		282757F3815D6718387A2075F13D8E94 /* Pods-GPXParserSwift_Tests */ = {
@@ -134,16 +146,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4F3D70378A65EBC7641C2358430FCA66 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				E6567075876E76491D84B4C768800B60 /* GPXParserSwift.podspec */,
-				CF50F8345C8C14ED87EADB342E644B17 /* LICENSE */,
-				5BBFF63CC3E855D9DBF107BCB27197B3 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		6187F6A23471D98EE1F2B22A71C6F182 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,15 +155,39 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		71EFF4CD57994754438E8E889F6DD945 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				35AAF5157819DED2D717003C47C6F18C /* ConcreteParser.swift */,
+				79AB094BD8633BB0ECDCBEEC2AFA5D9B /* GPXParser.swift */,
+			);
+			name = Parsers;
+			path = GPXParserSwift/Classes/Parsers;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				1CC732E1759B7F27F47F455BC928EFB4 /* Development Pods */,
+				D96D7B3B554409B36800269C19F4B3DF /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				C89BC56702A9FC6CB7818F7C3AFF1AD1 /* Products */,
 				BA22E80760CCCBF96A26833ED1689096 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		A17CD4A381CB547D2342B89D57577C1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C2BA9A5270346FE097E9D933FE0AFB7 /* GPX.swift */,
+				2558F47621C281FE00865E88 /* Route.swift */,
+				25C7D88221C28B4100039EBC /* Routepoint.swift */,
+				88D4D0ADFC1497EF5D0E7AEFE62A3B30 /* Track.swift */,
+				C2E72F2369548CEE1A077C04027CD5B5 /* Trackpoint.swift */,
+				E59A9585828B58CD153980B6D4055212 /* Waypoint.swift */,
+			);
+			name = Models;
+			path = GPXParserSwift/Classes/Models;
 			sourceTree = "<group>";
 		};
 		BA22E80760CCCBF96A26833ED1689096 /* Targets Support Files */ = {
@@ -172,16 +198,15 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C1AEA6700A915B4DC928C350627B5BF5 /* Models */ = {
+		C870AB5DAEE08F63DAE2BD126F6704C6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				15DDA78DF60851F4BDD5C8C688F9BC37 /* Fix.swift */,
-				5BEF61C066F73D2662114D83EFC0ECE7 /* GPX.swift */,
-				416E3FC3EE351506F9B8DC7AAD02966F /* Track.swift */,
-				FD5844990AC78887655CE5085450A880 /* Waypoint.swift */,
+				35E59EC3DD3B383C20B694F57BA7E75F /* Parser.swift */,
+				37F5F6E0DE548CC05D8238C0312DC59F /* Response.swift */,
+				25C6C6D721C28DF6004EAE4E /* Fix.swift */,
 			);
-			name = Models;
-			path = GPXParserSwift/Classes/Models;
+			name = Protocols;
+			path = GPXParserSwift/Classes/Protocols;
 			sourceTree = "<group>";
 		};
 		C89BC56702A9FC6CB7818F7C3AFF1AD1 /* Products */ = {
@@ -193,36 +218,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF1710F4370EC78517A2AEC58FCF489A /* GPXParserSwift */ = {
+		D96D7B3B554409B36800269C19F4B3DF /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C1AEA6700A915B4DC928C350627B5BF5 /* Models */,
-				E5C27D484875EA4496D0B9E609A0CDDC /* Parsers */,
-				4F3D70378A65EBC7641C2358430FCA66 /* Pod */,
-				1B0890D43D2D3D33F210155B52AC23DC /* Support Files */,
+				DC50B6146E6A45D6C34F91EC8BA20B53 /* GPXParserSwift */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DC50B6146E6A45D6C34F91EC8BA20B53 /* GPXParserSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A17CD4A381CB547D2342B89D57577C1E /* Models */,
+				71EFF4CD57994754438E8E889F6DD945 /* Parsers */,
+				26E00AE3D65699F360A646A4113FA7A4 /* Pod */,
+				C870AB5DAEE08F63DAE2BD126F6704C6 /* Protocols */,
+				0ACC19C42B030C4D2784DE9F81C9EC75 /* Support Files */,
 			);
 			name = GPXParserSwift;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		E5C27D484875EA4496D0B9E609A0CDDC /* Parsers */ = {
-			isa = PBXGroup;
-			children = (
-				4329794052BF869B77CB4A315395F96B /* GPXParser.swift */,
-				5760603B7C35D36DC169F023D24CCBFA /* Parser.swift */,
-			);
-			name = Parsers;
-			path = GPXParserSwift/Classes/Parsers;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2DA922F382408F67884D913EA0DBE306 /* Headers */ = {
+		204E0E9B854263B0E5F91D17F0E46151 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				714EC72CE3F878AA9AC5573B7834D37A /* GPXParserSwift-umbrella.h in Headers */,
+				8232E8D203B632EF4517845A70F6A778 /* GPXParserSwift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,24 +261,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		18C3665A9086A94D754EF1C3C183BD47 /* GPXParserSwift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F1CE6E065FEC8BB035A365BA2AD9612F /* Build configuration list for PBXNativeTarget "GPXParserSwift" */;
-			buildPhases = (
-				2DA922F382408F67884D913EA0DBE306 /* Headers */,
-				04CE16C164020D555AC253E68FD20A0D /* Sources */,
-				DC8851DE1268A0002724A3FF7D77C000 /* Frameworks */,
-				8BB82B8C126D989101E6268B53D42EAF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GPXParserSwift;
-			productName = GPXParserSwift;
-			productReference = C5864AD596DE1353ED4982092A818438 /* GPXParserSwift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		6F8393278EC1095808DC6528964C8BBB /* Pods-GPXParserSwift_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB1AF8B3954ED4C5ACDD04E96DD8BAAB /* Build configuration list for PBXNativeTarget "Pods-GPXParserSwift_Tests" */;
@@ -272,6 +278,24 @@
 			name = "Pods-GPXParserSwift_Tests";
 			productName = "Pods-GPXParserSwift_Tests";
 			productReference = C5B6CB57EEBC54667484CC9B24181ABF /* Pods_GPXParserSwift_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		717A8F132BB4C8BAC3F0EB4BC91AC1E2 /* GPXParserSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91997F834F5E14B679539BD3406B7F6B /* Build configuration list for PBXNativeTarget "GPXParserSwift" */;
+			buildPhases = (
+				204E0E9B854263B0E5F91D17F0E46151 /* Headers */,
+				60C0ECCAB99B58C8F0561B5264C74B4E /* Sources */,
+				5669B01BA32EC44C2A85E55F13F930C3 /* Frameworks */,
+				B2710BA17AC7D8A6E80EDDEB6949648F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPXParserSwift;
+			productName = GPXParserSwift;
+			productReference = C5864AD596DE1353ED4982092A818438 /* GPXParserSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -295,14 +319,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18C3665A9086A94D754EF1C3C183BD47 /* GPXParserSwift */,
+				717A8F132BB4C8BAC3F0EB4BC91AC1E2 /* GPXParserSwift */,
 				6F8393278EC1095808DC6528964C8BBB /* Pods-GPXParserSwift_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8BB82B8C126D989101E6268B53D42EAF /* Resources */ = {
+		B2710BA17AC7D8A6E80EDDEB6949648F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,17 +343,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04CE16C164020D555AC253E68FD20A0D /* Sources */ = {
+		60C0ECCAB99B58C8F0561B5264C74B4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D22A3443D22BD9D3FFCF6F4A4276C85 /* Fix.swift in Sources */,
-				80386CFCD43E388039A22B8CBFC764CC /* GPX.swift in Sources */,
-				E027E4AEED85AB1712F39B193B3618CD /* GPXParser.swift in Sources */,
-				803E6593776DB53F1493969B20CA7821 /* GPXParserSwift-dummy.m in Sources */,
-				CC4B092A055A33E1E5BBDFBEBE0D6D7F /* Parser.swift in Sources */,
-				860B7BB3380D6C1DF9E8C9C963DD3EDE /* Track.swift in Sources */,
-				988BCDB465A14529CE4A41565BA3818A /* Waypoint.swift in Sources */,
+				731D98C70321D19F5D5E8E82CCAA4538 /* ConcreteParser.swift in Sources */,
+				C25841DA378A77EE9B45DF2F268ADF5A /* Trackpoint.swift in Sources */,
+				1FBFAD22DA0E7433197716E56541ED23 /* GPX.swift in Sources */,
+				2558F47721C281FE00865E88 /* Route.swift in Sources */,
+				944A2692455382A1DBD48FFFC9C6D2A7 /* GPXParser.swift in Sources */,
+				C7E2D3DB24E93B535589CD91C36876C1 /* GPXParserSwift-dummy.m in Sources */,
+				25C7D88321C28B4100039EBC /* Routepoint.swift in Sources */,
+				25C6C6D821C28DF6004EAE4E /* Fix.swift in Sources */,
+				37682C9DACE32F70827C9C8B5A63F4A2 /* Parser.swift in Sources */,
+				0BD0D702C8B4593A4B06A100BCDCE908 /* Response.swift in Sources */,
+				D14A3DEE3C8CEB87B9082C1627A3CD09 /* Track.swift in Sources */,
+				BC59EFB7AA07130F44DCAFA2BE84390C /* Waypoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +376,7 @@
 		ADE4D545535F007AE4102253D6D803C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPXParserSwift;
-			target = 18C3665A9086A94D754EF1C3C183BD47 /* GPXParserSwift */;
+			target = 717A8F132BB4C8BAC3F0EB4BC91AC1E2 /* GPXParserSwift */;
 			targetProxy = 6CEECDF6D7678CB627B902BA0BB21CAB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -508,16 +537,15 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		BA158AC6851E7E143ED7AEA72568A3D7 /* Release */ = {
+		5B2DF0E540F916B23BDD0C4FC610B0B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E93D8E72534A592813C14E4FFEA2E545 /* GPXParserSwift.xcconfig */;
+			baseConfigurationReference = 2EC361C2C5E82CCBB40FA6F199082DD1 /* GPXParserSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -547,9 +575,9 @@
 			};
 			name = Release;
 		};
-		E6DB619418C572CB458DA0A021AC45C0 /* Debug */ = {
+		71DBFF4EC70839B2E0205A67370400CA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E93D8E72534A592813C14E4FFEA2E545 /* GPXParserSwift.xcconfig */;
+			baseConfigurationReference = 2EC361C2C5E82CCBB40FA6F199082DD1 /* GPXParserSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -623,20 +651,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		91997F834F5E14B679539BD3406B7F6B /* Build configuration list for PBXNativeTarget "GPXParserSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71DBFF4EC70839B2E0205A67370400CA /* Debug */,
+				5B2DF0E540F916B23BDD0C4FC610B0B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB1AF8B3954ED4C5ACDD04E96DD8BAAB /* Build configuration list for PBXNativeTarget "Pods-GPXParserSwift_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBE10DD44294F5D3F8DEB9597B9B0EB2 /* Debug */,
 				4D70773FB7F0AF2928F5E2F7091EEA56 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F1CE6E065FEC8BB035A365BA2AD9612F /* Build configuration list for PBXNativeTarget "GPXParserSwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E6DB619418C572CB458DA0A021AC45C0 /* Debug */,
-				BA158AC6851E7E143ED7AEA72568A3D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

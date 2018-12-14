@@ -24,8 +24,8 @@ if it is not present, yet.
 
 ## Author
 
-cyborgthefirst, johannes@ebelingfs.de
+calimoto GmbH
 
-## License
+ios-team@calimoto.com
 
-GPXParserSwift is available under the MIT license. See the LICENSE file for more info.
+johannes.ebeling@calimoto.com

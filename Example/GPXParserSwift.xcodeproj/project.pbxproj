@@ -18,7 +18,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		706B6A38AFCB0CF065F0A8AE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		90F4A567A196FEE160AC9459 /* GPXParserSwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GPXParserSwift.podspec; path = ../GPXParserSwift.podspec; sourceTree = "<group>"; };
+		90F4A567A196FEE160AC9459 /* GPXParserSwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GPXParserSwift.podspec; path = ../GPXParserSwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BBC483651A1867A97489C400 /* Pods_GPXParserSwift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPXParserSwift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F8772CF971E46AB4CFA6CF /* Pods-GPXParserSwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPXParserSwift_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPXParserSwift_Tests/Pods-GPXParserSwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */

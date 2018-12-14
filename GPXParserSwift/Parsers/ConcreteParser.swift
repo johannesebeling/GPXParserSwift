@@ -1,4 +1,3 @@
-import MapKit
 import Foundation
 
 public class ConcreteParser<K: Response>: NSObject, Parser {
@@ -40,8 +39,13 @@ public class ConcreteParser<K: Response>: NSObject, Parser {
     }
 
     @objc func parserDidEndDocument(_ parser: XMLParser) {
+        finalizeParsing()
         DispatchQueue.main.async {
             self.completion?(self.result)
         }
+    }
+    
+    public func finalizeParsing() {
+        /// Do nothing
     }
 }

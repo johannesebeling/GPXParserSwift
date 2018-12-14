@@ -1,8 +1,8 @@
-import MapKit
-
 public final class GPXParser: ConcreteParser<GPX> {
     
     // MARK: - Properties
+    
+    var metadata: Metadata?
     
     var track: Track?
     var route: Route?
@@ -14,12 +14,45 @@ public final class GPXParser: ConcreteParser<GPX> {
     
     // MARK: - XML Parser
     
+    // MARK: - didStartElement
+    
     @objc func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        if elementName == "gpx" {
+            metadata = Metadata()
+            metadata?.creator = attributeDict["creator"]
+        }
+        
+        if elementName == "metadata" && metadata == nil {
+            metadata = Metadata()
+        }
+        
+        if elementName == "name" && metadata != nil {
+            currentString = ""
+        }
+        
+        if elementName == "copyright" && metadata != nil {
+            metadata?.author = attributeDict["author"]
+        }
+        
+        if elementName == "link" && metadata != nil {
+            metadata?.link = attributeDict["href"]
+        }
+        
+        if elementName == "time" && metadata != nil {
+            currentString = ""
+        }
+        
         /// Track
         if elementName == "trk" {
             if track == nil {
                 track = Track()
             }
+        }
+        
+        /// Track name
+        if elementName == "name" && track != nil {
+            currentString = ""
         }
         
         /// Track point
@@ -30,12 +63,12 @@ public final class GPXParser: ConcreteParser<GPX> {
                 trackpoint?.longitude = Double(attributeDict["lon"] ?? "0.0") ?? 0.0
             }
         }
-        
         /// Route
         if elementName == "rte" {
             if route == nil {
                 route = Route()
             }
+            return
         }
         
         /// Route point
@@ -47,6 +80,11 @@ public final class GPXParser: ConcreteParser<GPX> {
             }
         }
         
+        /// Route name
+        if elementName == "name" && route != nil {
+            currentString = ""
+        }
+        
         /// Routepoint name
         if elementName == "name" && routepoint != nil {
             currentString = ""
@@ -56,7 +94,6 @@ public final class GPXParser: ConcreteParser<GPX> {
         if elementName == "desc" && routepoint != nil {
             currentString = ""
         }
-        
         /// Waypoint
         if elementName == "wpt" {
             if waypoint == nil {
@@ -77,7 +114,33 @@ public final class GPXParser: ConcreteParser<GPX> {
         }
     }
     
+    // MARK: - didEndElement
+    
     @objc func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        
+        if elementName == "gpx" && result?.metadata == nil {
+            result?.metadata = metadata
+            metadata = nil
+            return
+        }
+        
+        if elementName == "metadata" && metadata != nil {
+            result?.metadata = metadata
+            metadata = nil
+            return
+        }
+        
+        if elementName == "name" && metadata != nil {
+            metadata?.name = currentString
+            currentString = nil
+            return
+        }
+        
+        if elementName == "time" && metadata != nil {
+            metadata?.date = currentString
+            currentString = nil
+            return
+        }
         
         /// End track
         if elementName == "trk", let track = track {
@@ -86,13 +149,18 @@ public final class GPXParser: ConcreteParser<GPX> {
             return
         }
         
+        /// End track name
+        if elementName == "name", track != nil, trackpoint == nil {
+            track?.name = currentString
+            currentString = nil
+        }
+        
         /// End track point
         if elementName == "trkpt", let trackpoint = trackpoint, track != nil {
             track?.trackpoints.append(trackpoint)
             self.trackpoint = nil
             return
         }
-        
         /// End route
         if elementName == "rte", let route = route {
             result?.routes.append(route)
@@ -100,10 +168,16 @@ public final class GPXParser: ConcreteParser<GPX> {
             return
         }
         
+        /// End route name
+        if elementName == "name", route != nil, routepoint == nil {
+            route?.name = currentString
+            currentString = nil
+        }
+        
         /// End route point
         if elementName == "rtept", let routepoint = routepoint, route != nil {
             route?.routepoints.append(routepoint)
-            self.trackpoint = nil
+            self.routepoint = nil
             return
         }
         
@@ -118,7 +192,6 @@ public final class GPXParser: ConcreteParser<GPX> {
             routepoint?.desc = currentString
             self.currentString = nil
         }
-        
         /// End waypoint
         if elementName == "wpt", let waypoint = waypoint {
             result?.waypoints.append(waypoint)
@@ -140,26 +213,25 @@ public final class GPXParser: ConcreteParser<GPX> {
     }
     
     // MARK: - Conversion
-
-    private func generatePaths() {
+    
+    public override func finalizeParsing() {
         guard let result = result else {
             return
         }
-        var topLeftCoord = CLLocationCoordinate2D()
-        var bottomRightCoord = CLLocationCoordinate2D()
-
+        var topLeftCoord: Coordinate = Point()
+        var bottomRightCoord: Coordinate = Point()
+        
         var hasRegion = false
-
+        
         /// Fill the tracks
         for track in result.tracks {
-            var coordinates = [CLLocationCoordinate2D]()
+            var coordinates = [Coordinate]()
             for index in 0..<track.trackpoints.count {
-                let fix = track.trackpoints[index]
-                let coordinate = fix.coordinate
+                let coordinate = track.trackpoints[index]
                 coordinates.append(coordinate)
-
+                
                 /// Set map bounds
-
+                
                 if !hasRegion {
                     topLeftCoord = coordinate
                     bottomRightCoord = coordinate
@@ -167,28 +239,24 @@ public final class GPXParser: ConcreteParser<GPX> {
                 } else {
                     topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                     topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
-
+                    
                     bottomRightCoord.longitude = min(bottomRightCoord.longitude, coordinate.longitude)
                     bottomRightCoord.latitude = max(bottomRightCoord.latitude, coordinate.latitude)
                 }
-
-                if let previousFix = previousTrackpoint {
-                    let locCoordinate = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                    let locPreviousFix = CLLocation(latitude: previousFix.coordinate.latitude, longitude: previousFix.coordinate.longitude)
-                    result.distance += locCoordinate.distance(from: locPreviousFix) / 1000
+                
+                if let previous = previousTrackpoint {
+                    result.distance += haversineDinstance(firstCoordinate: coordinate, secondCoordinate: previous)
                 } else {
                     result.distance = 0.0
                 }
-                previousTrackpoint = fix
+                previousTrackpoint = coordinate
             }
-            track.path = MKPolyline(coordinates: coordinates, count: track.trackpoints.count)
         }
-
+        
         /// Take waypoints into account
         for index in 0..<result.waypoints.count {
-            let waypoint = result.waypoints[index]
-            let coordinate = waypoint.coordinate
-
+            let coordinate = result.waypoints[index]
+            
             /// Set map bounds
             if !hasRegion {
                 topLeftCoord = coordinate
@@ -197,22 +265,21 @@ public final class GPXParser: ConcreteParser<GPX> {
             } else {
                 topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                 topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
-
+                
                 bottomRightCoord.longitude = min(bottomRightCoord.longitude, coordinate.longitude)
                 bottomRightCoord.latitude = max(bottomRightCoord.latitude, coordinate.latitude)
             }
         }
-
+        
         /// Fill the routes
         for route in result.routes {
-            var coordinates = [CLLocationCoordinate2D]()
+            var coordinates = [Coordinate]()
             for index in 0..<route.routepoints.count {
-                let fix = route.routepoints[index]
-                let coordinate = fix.coordinate
+                let coordinate = route.routepoints[index]
                 coordinates.append(coordinate)
-
+                
                 /// Set map bounds
-
+                
                 if !hasRegion {
                     topLeftCoord = coordinate
                     bottomRightCoord = coordinate
@@ -220,14 +287,13 @@ public final class GPXParser: ConcreteParser<GPX> {
                 } else {
                     topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                     topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
-
+                    
                     bottomRightCoord.longitude = min(bottomRightCoord.longitude, coordinate.longitude)
                     bottomRightCoord.latitude = max(bottomRightCoord.latitude, coordinate.latitude)
                 }
-                route.path = MKPolyline(coordinates: coordinates, count: route.routepoints.count)
             }
         }
-        var region = MKCoordinateRegion()
+        var region = CoordinateRegion()
         region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5
         region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5
         region.span.latitudeDelta = abs(topLeftCoord.latitude - bottomRightCoord.latitude)

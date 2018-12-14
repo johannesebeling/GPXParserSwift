@@ -11,6 +11,5 @@ Parse for the .gpx file format entirely written in Swift
   s.author           = { 'cyborgthefirst' => 'johannes@ebelingfs.de' }
   s.source           = { :git => 'https://github.com/cyborgthefirst/GPXParserSwift.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
-  s.source_files = 'GPXParserSwift/Classes/**/*'
-  s.frameworks = 'MapKit'
+  s.source_files = 'GPXParserSwift/**/*'
 end

@@ -1,3 +1,5 @@
+import Foundation
+
 public protocol Parser: class, XMLParserDelegate {
     associatedtype T: Response
     typealias CompletionHandler = (_ response: T?) -> Void
@@ -11,6 +13,8 @@ public protocol Parser: class, XMLParserDelegate {
     
     func parse(url: URL, onCompletion completion: @escaping CompletionHandler)
     func parse(data: Data, onCompletion completion: @escaping CompletionHandler)
+    
+    func finalizeParsing()
 }
 
 extension Parser {

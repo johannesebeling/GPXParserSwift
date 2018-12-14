@@ -1,10 +1,5 @@
 # GPXParserSwift
 
-[![CI Status](https://img.shields.io/travis/cyborgthefirst/GPXParserSwift.svg?style=flat)](https://travis-ci.org/cyborgthefirst/GPXParserSwift)
-[![Version](https://img.shields.io/cocoapods/v/GPXParserSwift.svg?style=flat)](https://cocoapods.org/pods/GPXParserSwift)
-[![License](https://img.shields.io/cocoapods/l/GPXParserSwift.svg?style=flat)](https://cocoapods.org/pods/GPXParserSwift)
-[![Platform](https://img.shields.io/cocoapods/p/GPXParserSwift.svg?style=flat)](https://cocoapods.org/pods/GPXParserSwift)
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -13,12 +8,19 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-GPXParserSwift is available through [CocoaPods](https://cocoapods.org). To install
+GPXParserSwift is available through [CocoaPods](https://cocoapods.org) using our private
+[spec repository](https://github.com/calimoto-GmbH/calimoto-pod-specs). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'GPXParserSwift'
 ```
+and at the top of your Podfile add:
+
+```ruby
+source 'git@github.com:calimoto-GmbH/calimoto-pod-specs.git'
+```
+if it is not present, yet.
 
 ## Author
 

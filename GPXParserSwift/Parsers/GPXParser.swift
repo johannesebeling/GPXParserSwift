@@ -240,8 +240,8 @@ public final class GPXParser: ConcreteParser<GPX> {
                     topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                     topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
                     
-                    bottomRightCoord.longitude = min(bottomRightCoord.longitude, coordinate.longitude)
-                    bottomRightCoord.latitude = max(bottomRightCoord.latitude, coordinate.latitude)
+                    bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
+                    bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
                 }
                 
                 if let previous = previousTrackpoint {
@@ -266,8 +266,8 @@ public final class GPXParser: ConcreteParser<GPX> {
                 topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                 topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
                 
-                bottomRightCoord.longitude = min(bottomRightCoord.longitude, coordinate.longitude)
-                bottomRightCoord.latitude = max(bottomRightCoord.latitude, coordinate.latitude)
+                bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
+                bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
             }
         }
         
@@ -288,8 +288,8 @@ public final class GPXParser: ConcreteParser<GPX> {
                     topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                     topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
                     
-                    bottomRightCoord.longitude = min(bottomRightCoord.longitude, coordinate.longitude)
-                    bottomRightCoord.latitude = max(bottomRightCoord.latitude, coordinate.latitude)
+                    bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
+                    bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
                 }
             }
         }

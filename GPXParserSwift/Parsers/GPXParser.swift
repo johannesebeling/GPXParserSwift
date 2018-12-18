@@ -157,7 +157,7 @@ public final class GPXParser: ConcreteParser<GPX> {
         
         /// End track point
         if elementName == "trkpt", let trackpoint = trackpoint, track != nil {
-            track?.trackpoints.append(trackpoint)
+            track?.points.append(trackpoint)
             self.trackpoint = nil
             return
         }
@@ -176,7 +176,7 @@ public final class GPXParser: ConcreteParser<GPX> {
         
         /// End route point
         if elementName == "rtept", let routepoint = routepoint, route != nil {
-            route?.routepoints.append(routepoint)
+            route?.points.append(routepoint)
             self.routepoint = nil
             return
         }
@@ -218,68 +218,24 @@ public final class GPXParser: ConcreteParser<GPX> {
         guard let result = result else {
             return
         }
-        var topLeftCoord: Coordinate = Point()
-        var bottomRightCoord: Coordinate = Point()
         
-        var hasRegion = false
-        
-        /// Fill the tracks
-        for track in result.tracks {
-            var coordinates = [Coordinate]()
-            for index in 0..<track.trackpoints.count {
-                let coordinate = track.trackpoints[index]
-                coordinates.append(coordinate)
-                
-                /// Set map bounds
-                
-                if !hasRegion {
-                    topLeftCoord = coordinate
-                    bottomRightCoord = coordinate
-                    hasRegion = true
-                } else {
-                    topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
-                    topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
-                    
-                    bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
-                    bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
-                }
-                
-                if let previous = previousTrackpoint {
-                    result.distance += haversineDinstance(firstCoordinate: coordinate, secondCoordinate: previous)
-                } else {
-                    result.distance = 0.0
-                }
-                previousTrackpoint = coordinate
-            }
-        }
-        
-        /// Take waypoints into account
-        for index in 0..<result.waypoints.count {
-            let coordinate = result.waypoints[index]
+        result.tracks = process(objects: result.tracks)
+        result.routes = process(objects: result.routes)
+    }
+    
+    private func process<T: PointsRepresentable>(objects: [T]) -> [T] {
+        var processed = [T]()
+        for var object in objects {
             
-            /// Set map bounds
-            if !hasRegion {
-                topLeftCoord = coordinate
-                bottomRightCoord = coordinate
-                hasRegion = true
-            } else {
-                topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
-                topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
+            var distance = 0.0
+            var hasRegion = false
+            var topLeftCoord: Coordinate = Point()
+            var bottomRightCoord: Coordinate = Point()
+            
+            for index in 0..<object.points.count {
+                let coordinate = object.points[index]
                 
-                bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
-                bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
-            }
-        }
-        
-        /// Fill the routes
-        for route in result.routes {
-            var coordinates = [Coordinate]()
-            for index in 0..<route.routepoints.count {
-                let coordinate = route.routepoints[index]
-                coordinates.append(coordinate)
-                
-                /// Set map bounds
-                
+                /// Set track bounds
                 if !hasRegion {
                     topLeftCoord = coordinate
                     bottomRightCoord = coordinate
@@ -287,17 +243,28 @@ public final class GPXParser: ConcreteParser<GPX> {
                 } else {
                     topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
                     topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
-                    
                     bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
                     bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
                 }
+                
+                if index != 0 {
+                    let previous = object.points[index - 1]
+                    distance += haversineDinstance(firstCoordinate: coordinate, secondCoordinate: previous)
+                }
             }
+            object.distance = distance
+            object.region = createRegion(topLeft: topLeftCoord, bottomRight: bottomRightCoord)
+            processed.append(object)
         }
+        return processed
+    }
+    
+    private func createRegion(topLeft: Coordinate, bottomRight: Coordinate) -> CoordinateRegion {
         var region = CoordinateRegion()
-        region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5
-        region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5
-        region.span.latitudeDelta = abs(topLeftCoord.latitude - bottomRightCoord.latitude)
-        region.span.longitudeDelta = abs(bottomRightCoord.longitude - topLeftCoord.longitude)
-        result.region = region
+        region.center.latitude = topLeft.latitude - (topLeft.latitude - bottomRight.latitude) * 0.5
+        region.center.longitude = topLeft.longitude + (bottomRight.longitude - topLeft.longitude) * 0.5
+        region.span.latitudeDelta = abs(topLeft.latitude - bottomRight.latitude)
+        region.span.longitudeDelta = abs(bottomRight.longitude - topLeft.longitude)
+        return region
     }
 }

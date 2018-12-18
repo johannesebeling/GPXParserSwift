@@ -5,14 +5,12 @@ public class GPX: Response {
     public var routes: [Route]
     public var waypoints: [Waypoint]
     public var region: CoordinateRegion
-    public var distance: Double
     
     required public init() {
         tracks = [Track]()
         routes = [Route]()
         waypoints = [Waypoint]()
         region = CoordinateRegion()
-        distance = 0.0
     }
 }
 
@@ -36,9 +34,6 @@ extension GPX {
             base.append(waypoint.description)
             base.append("\n")
         }
-        base.append("Region:\n")
-        base.append("\(region.description)\n")
-        base.append("Distance: \(distance)")
         return base
     }
 }

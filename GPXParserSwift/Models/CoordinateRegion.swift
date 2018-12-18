@@ -1,13 +1,13 @@
 public struct CoordinateRegion: Codable {
     
-    public var center: Coordinate
+    public var center: Point
     public var span: CoordinateSpan
     
     public init() {
         self.init(center: Point(), span: CoordinateSpan())
     }
     
-    public init(center: Coordinate, span: CoordinateSpan) {
+    public init(center: Point, span: CoordinateSpan) {
         self.center = center
         self.span = span
     }

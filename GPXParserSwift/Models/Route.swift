@@ -1,7 +1,9 @@
-public struct Route {
+public struct Route: Codable, PointsRepresentable {
     
     public var name: String?
-    public var routepoints = [Routepoint]()
+    public var distance = 0.0
+    public var region = CoordinateRegion()
+    public var points = [Routepoint]()
 }
 
 extension Route {
@@ -9,8 +11,8 @@ extension Route {
     public var description: String {
         var base = "Route: \(name ?? "")\n"
         base.append("Routepoints:\n")
-        for index in 0..<routepoints.count {
-            let routepoint = routepoints[index]
+        for index in 0..<points.count {
+            let routepoint = points[index]
             base.append("\(index):\n")
             base.append(routepoint.description)
             base.append("\n")

@@ -1,4 +1,4 @@
-public struct CoordinateRegion {
+public struct CoordinateRegion: Codable {
     
     public var center: Coordinate
     public var span: CoordinateSpan

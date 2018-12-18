@@ -1,4 +1,4 @@
-public struct Metadata {
+public struct Metadata: Codable {
     
     public var creator: String?
     public var name: String?

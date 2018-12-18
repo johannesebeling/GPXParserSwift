@@ -4,7 +4,11 @@ public struct Point: Coordinate {
     public var longitude: Double
     
     public init() {
-        latitude = 0.0
-        longitude = 0.0
+        self.init(latitude: 0.0, longitude: 0.0)
+    }
+    
+    public init(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }

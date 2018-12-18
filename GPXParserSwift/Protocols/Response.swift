@@ -1,4 +1,4 @@
-public protocol Response {
+public protocol Response: Codable {
     
     init()
 }

@@ -14,6 +14,11 @@ public struct Routepoint: Coordinate {
         latitude = 0.0
         longitude = 0.0
     }
+    
+    public init(latitude: Double, longitude: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
 }
 
 extension Routepoint {

@@ -1,4 +1,4 @@
-public struct CoordinateSpan {
+public struct CoordinateSpan: Codable {
     
     public var latitudeDelta: Double
     public var longitudeDelta: Double

@@ -1,9 +1,11 @@
-public protocol Coordinate {
+public protocol Coordinate: Codable {
     
     var latitude: Double { get set }
     var longitude: Double { get set }
     
     init()
+    
+    init(latitude: Double, longitude: Double)
 }
 
 extension Coordinate {

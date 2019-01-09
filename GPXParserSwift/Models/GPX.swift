@@ -4,13 +4,13 @@ public class GPX: Response {
     public var tracks: [Track]
     public var routes: [Route]
     public var waypoints: [Waypoint]
-    public var region: CoordinateRegion
+    public var distanceBetweenWaypoints: Double?
+    public var regionForWaypoints: CoordinateRegion?
     
     required public init() {
         tracks = [Track]()
         routes = [Route]()
         waypoints = [Waypoint]()
-        region = CoordinateRegion()
     }
 }
 
@@ -34,6 +34,9 @@ extension GPX {
             base.append(waypoint.description)
             base.append("\n")
         }
+        base.append("Overall distance between all waypoints: \(distanceBetweenWaypoints ?? 0.0)\n")
+        base.append("Common coordinate region for all waypoints:\n")
+        base.append(regionForWaypoints?.description ?? "")
         return base
     }
 }

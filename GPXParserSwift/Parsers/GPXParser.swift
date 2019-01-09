@@ -1,4 +1,5 @@
 public final class GPXParser: ConcreteParser<GPX> {
+    typealias WaypointProcessingResult = (region: CoordinateRegion, distance: Double)
     
     // MARK: - Properties
     
@@ -10,7 +11,6 @@ public final class GPXParser: ConcreteParser<GPX> {
     var waypoint: Waypoint?
     var routepoint: Routepoint?
     var trackpoint: Trackpoint?
-    var previousTrackpoint: Trackpoint?
     
     // MARK: - XML Parser
     
@@ -221,6 +221,13 @@ public final class GPXParser: ConcreteParser<GPX> {
         
         result.tracks = process(objects: result.tracks)
         result.routes = process(objects: result.routes)
+        
+        guard !result.waypoints.isEmpty else {
+            return
+        }
+        let processingResult = process(waypoints: result.waypoints)
+        result.distanceBetweenWaypoints = processingResult.distance
+        result.regionForWaypoints = processingResult.region
     }
     
     private func process<T: PointsRepresentable>(objects: [T]) -> [T] {
@@ -229,42 +236,65 @@ public final class GPXParser: ConcreteParser<GPX> {
             
             var distance = 0.0
             var hasRegion = false
-            var topLeftCoord: Coordinate = Point()
-            var bottomRightCoord: Coordinate = Point()
+            var northEast: Coordinate = Point()
+            var southWest: Coordinate = Point()
             
             for index in 0..<object.points.count {
                 let coordinate = object.points[index]
                 
                 /// Set track bounds
                 if !hasRegion {
-                    topLeftCoord = coordinate
-                    bottomRightCoord = coordinate
+                    northEast = coordinate
+                    southWest = coordinate
                     hasRegion = true
                 } else {
-                    topLeftCoord.longitude = min(topLeftCoord.longitude, coordinate.longitude)
-                    topLeftCoord.latitude = max(topLeftCoord.latitude, coordinate.latitude)
-                    bottomRightCoord.longitude = max(bottomRightCoord.longitude, coordinate.longitude)
-                    bottomRightCoord.latitude = min(bottomRightCoord.latitude, coordinate.latitude)
+                    northEast.longitude = min(northEast.longitude, coordinate.longitude)
+                    northEast.latitude = max(northEast.latitude, coordinate.latitude)
+                    southWest.longitude = max(southWest.longitude, coordinate.longitude)
+                    southWest.latitude = min(southWest.latitude, coordinate.latitude)
                 }
                 
                 if index != 0 {
                     let previous = object.points[index - 1]
-                    distance += haversineDinstance(firstCoordinate: coordinate, secondCoordinate: previous)
+                    distance += MathHelper().haversineDinstance(firstCoordinate: coordinate, secondCoordinate: previous)
                 }
             }
             object.distance = distance
-            object.region = createRegion(topLeft: topLeftCoord, bottomRight: bottomRightCoord)
+            object.region = CoordinateRegion(southWest: southWest, northEast: northEast)
             processed.append(object)
         }
         return processed
     }
     
-    private func createRegion(topLeft: Coordinate, bottomRight: Coordinate) -> CoordinateRegion {
-        var region = CoordinateRegion()
-        region.center.latitude = topLeft.latitude - (topLeft.latitude - bottomRight.latitude) * 0.5
-        region.center.longitude = topLeft.longitude + (bottomRight.longitude - topLeft.longitude) * 0.5
-        region.span.latitudeDelta = abs(topLeft.latitude - bottomRight.latitude)
-        region.span.longitudeDelta = abs(bottomRight.longitude - topLeft.longitude)
-        return region
+    private func process(waypoints: [Waypoint]) -> WaypointProcessingResult{
+        var processingResult = WaypointProcessingResult(region: CoordinateRegion(), distance: 0.0)
+        var distance = 0.0
+        var hasRegion = false
+        var northEast: Coordinate = Point()
+        var southWest: Coordinate = Point()
+        
+        for index in 0..<waypoints.count {
+            let coordinate = waypoints[index]
+            
+            /// Set track bounds
+            if !hasRegion {
+                northEast = coordinate
+                southWest = coordinate
+                hasRegion = true
+            } else {
+                northEast.longitude = min(northEast.longitude, coordinate.longitude)
+                northEast.latitude = max(northEast.latitude, coordinate.latitude)
+                southWest.longitude = max(southWest.longitude, coordinate.longitude)
+                southWest.latitude = min(southWest.latitude, coordinate.latitude)
+            }
+            
+            if index != 0 {
+                let previous = waypoints[index - 1]
+                distance += MathHelper().haversineDinstance(firstCoordinate: coordinate, secondCoordinate: previous)
+            }
+        }
+        processingResult.distance = distance
+        processingResult.region = CoordinateRegion(southWest: southWest, northEast: northEast)
+        return processingResult
     }
 }

@@ -15,30 +15,30 @@ public class ConcreteParser<K: Response>: NSObject, Parser {
     
     // MARK: - XMLParser Delegate
     
-    @objc func parser(_ parser: XMLParser, foundCharacters string: String) {
+    @objc public func parser(_ parser: XMLParser, foundCharacters string: String) {
         if currentString == nil {
             currentString = ""
         }
         currentString?.append(string)
     }
     
-    @objc func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+    @objc public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         DispatchQueue.main.async {
             self.completion?(nil)
         }
     }
     
-    @objc func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
+    @objc public func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
         DispatchQueue.main.async {
             self.completion?(nil)
         }
     }
     
-    @objc func parserDidStartDocument(_ parser: XMLParser) {
+    @objc public func parserDidStartDocument(_ parser: XMLParser) {
         result = T()
     }
 
-    @objc func parserDidEndDocument(_ parser: XMLParser) {
+    @objc public func parserDidEndDocument(_ parser: XMLParser) {
         finalizeParsing()
         DispatchQueue.main.async {
             self.completion?(self.result)

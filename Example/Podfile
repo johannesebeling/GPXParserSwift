@@ -1,6 +1,0 @@
-use_frameworks!
-target 'GPXParserSwift_Tests' do
-  pod 'GPXParserSwift', :path => '../'
-  
-  
-end

@@ -1,6 +1,0 @@
-framework module Pods_GPXParserSwift_Tests {
-  umbrella header "Pods-GPXParserSwift_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
